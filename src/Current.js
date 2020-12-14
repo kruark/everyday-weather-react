@@ -31,10 +31,10 @@ export default function Current() {
               {" "}
               {weatherData.temperature}
               <span></span>°{" "}
-              <a href="#" className="active">
+              <a href="/" className="active">
                 C
               </a>
-              |<a href="#">F</a>
+              |<a href="/">F</a>
             </p>
           </div>
         </div>
