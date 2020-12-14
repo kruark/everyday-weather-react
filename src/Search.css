@@ -1,0 +1,26 @@
+.form-group {
+  margin: 4%;
+}
+.form-control {
+  font-size: 24px;
+}
+.btn-primary {
+  background-color: #fe6651;
+  border: 1px solid #fe6651;
+  box-shadow: 1px 1px 1px #00000071;
+  font-size: 14px;
+}
+.btn-primary:hover {
+  background-color: #d98748;
+  border: 1px solid #d98748;
+}
+.btn-secondary {
+  background-color: #308391;
+  border: 1px solid #308391;
+  font-size: 14px;
+  box-shadow: 1px 1px 1px #00000071;
+}
+.btn-secondary:hover {
+  background-color: #0f7688;
+  border: 1px solid #0f7688;
+}
