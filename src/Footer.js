@@ -24,7 +24,7 @@ export default function Footer() {
         </a>
         <br />
         <a
-          href="https://github.com/kruark/Weather-App"
+          href="https://github.com/kruark/everyday-weather-react"
           target="_blank"
           rel="noreferrer"
         >
