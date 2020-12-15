@@ -24,3 +24,50 @@
   background-color: #0f7688;
   border: 1px solid #0f7688;
 }
+
+.selectCity {
+  margin-top: 10%;
+}
+
+.selectCityTemp {
+  color: #ffffff;
+  font-size: 32px;
+  text-align: center;
+}
+.selectCityTemp .active {
+  color: #ffffff;
+  cursor: default;
+}
+.selectCityTemp .active:hover {
+  text-decoration: none;
+}
+
+.selectCityInfo {
+  border-radius: 10px;
+  font-weight: bolder;
+  font-size: 32px;
+  margin-top: 10%;
+  text-shadow: #333331 1px 0 2px;
+  text-transform: capitalize;
+}
+#today-date {
+  margin-top: 4%;
+}
+
+a {
+  color: #fe6651;
+}
+a:hover {
+  color: #f7c7be;
+}
+
+h4 {
+  line-height: 130%;
+}
+
+h2 {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 34px;
+}
