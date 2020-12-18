@@ -1,7 +1,9 @@
 import React, {useState} from "react";
+import FormattedDate from "./FormattedDate";
 import axios from "axios";
-import "./Search.css";
-export default function Search() {
+import "./Weather.css";
+
+export default function Weather() {
   const [city, setCity] = useState("");
   const [result, setResult] = useState("");
   let apiKey = "0266533ac4e8b61c19419a959a2b8aae";
@@ -20,29 +22,28 @@ export default function Search() {
       alert`Please enter a city`;
     }
   }
+
   function showWeather(response) {
     setResult(
 <div className = "currentWeather">
     <div className="row no-gutters">
         <div className="col">
-   <h2><img src={`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`}
-            alt="icon"
-          /> <br />
+   <h2>
+     <img src={`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`}
+            alt="icon"/> 
+          <br />
      {Math.round(response.data.main.temp)}° <a href="/">C</a>/<a href="/">F</a></h2> 
 </div>
 <div className="col">
   <h1>
       {city}
   </h1>
-  <h3>Sunday, September 20<br />
-  12:30 PM ET </h3>
-  
+  <h3><FormattedDate date = {new Date(response.data.dt*1000)} /></h3>
   <h4> {response.data.weather[0].main}</h4>
 <h4>High {Math.round(response.data.main.temp_max)}° | Low {Math.round(response.data.main.temp_min)}°</h4>
 <h4>Humidity: {response.data.main.humidity}%</h4>
 </div>
 </div>
-
 </div>
     );
   }
@@ -67,7 +68,6 @@ export default function Search() {
          <div className="col-2">
            <button type="submit" className="btn btn-secondary w-100 h-100">Current</button>
          </div>
-         
       </div>
  </div>
   </form>
