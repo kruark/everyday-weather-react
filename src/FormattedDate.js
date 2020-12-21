@@ -50,6 +50,6 @@ let formatTime = `${hours}:${minutes}`;
   <div className = "dateTime">
       {formatDate} 
       <br /> 
-      {formatTime}
+      Updated {formatTime} ET
       </div>);
 }

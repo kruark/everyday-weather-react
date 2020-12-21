@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import FormattedDate from "./FormattedDate";
 import axios from "axios";
+import WeatherIcon from './WeatherIcon';
 import "./Weather.css";
 
 export default function Weather() {
@@ -29,16 +30,15 @@ export default function Weather() {
     <div className="row no-gutters">
         <div className="col">
    <h2>
-     <img src={`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@4x.png`}
-            alt="icon"/> 
-          <br />
-     {Math.round(response.data.main.temp)}° <a href="/">C</a>/<a href="/">F</a></h2> 
+ <WeatherIcon code = {response.data.weather[0].icon}/></h2>
+         
+     <h2 className="Degrees">{Math.round(response.data.main.temp)}° <a href="/">C</a>/<a href="/">F</a> </h2>
 </div>
 <div className="col">
   <h1>
       {city}
   </h1>
-  <h3><FormattedDate date = {new Date(response.data.dt*1000)} /></h3>
+  <h4><FormattedDate date = {new Date(response.data.dt*1000)} /></h4>
   <h4> {response.data.weather[0].main}</h4>
 <h4>High {Math.round(response.data.main.temp_max)}° | Low {Math.round(response.data.main.temp_min)}°</h4>
 <h4>Humidity: {response.data.main.humidity}%</h4>
@@ -46,8 +46,10 @@ export default function Weather() {
 </div>
 </div>
     );
+    
   }
 
+  
   return (
     <div className = "citySearch">
    <form onSubmit={handleSubmit}>
@@ -75,5 +77,4 @@ export default function Weather() {
       <p>{result}</p>
   
  </div>
-  );
-}
+  )}
