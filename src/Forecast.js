@@ -1,83 +1,35 @@
-import React from "react";
+import React, {useState} from "react";
 import "./App.css";
-import ReactAnimatedWeather from 'react-animated-weather';
+import axios from "axios";
+import WeatherForecastPreview from "./WeatherForecastPreview";
+import "./Weather.css"
 
-export default function Forecast() {
+export default function Forecast(props) {
+  const [loaded, setLoaded] = useState(false);
+  const [forecast, setForecast] = useState(null);
+
+  function handleForecastResponse(response){
+  setForecast(response.data);
+  setLoaded(true);
+}
+
+if (loaded && props.city === forecast.city.name) { 
   return (
-    <div className="Forecast">
-      <div className="row weatherForecast no-gutters">
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Monday</h5>
-              <span>🌥</span>
-              <div className="weather-forecast-temperature">
-                <strong>13°</strong> | <span>10°</span>
-              </div>
-            </div>
-          </div>
-        </div>
+  <div className="WeatherForecast row">
+   <WeatherForecastPreview data={forecast.list[0]} />
+  <WeatherForecastPreview data={forecast.list[1]} />
+  <WeatherForecastPreview data={forecast.list[2]} />
+  <WeatherForecastPreview data={forecast.list[3]} />
+  <WeatherForecastPreview data={forecast.list[4]} />
+  <WeatherForecastPreview data={forecast.list[5]} />
 
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Tuesday</h5>
-              <span>☀️</span>
-              <div className="weather-forecast-temperature">
-                <strong>14°</strong> | <span>11°</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Wednesday</h5>
-              <span>🌥</span>
-              <div className="weather-forecast-temperature">
-                <strong>13°</strong> | <span>12°</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Thursday</h5>
-              <span>🌤</span>
-              <div className="weather-forecast-temperature">
-                <strong>13°</strong> | <span>10°</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Friday</h5>
-              <span>🌦</span>
-              <div className="weather-forecast-temperature">
-                <strong>14°</strong> | <span>10°</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="col">
-          <div className="card">
-            <div className="card-body">
-              <h5 className="card-title">Saturday</h5>
-              <span>🌦</span>
-              <div className="weather-forecast-temperature">
-                <strong>13°</strong> | <span>11°</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
+  </div>
+);
+} else {
+let apiKey = "0266533ac4e8b61c19419a959a2b8aae";
+let units = "metric";
+let apiUrl = `https://api.openweathermap.org/data/2.5/forecast?q=${props.city}&appid=${apiKey}&units=${units}`;
+axios.get(apiUrl).then(handleForecastResponse);
+return null;
+}
 }
