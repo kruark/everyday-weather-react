@@ -49,8 +49,11 @@ export default function Weather() {
 <h4>Humidity: {response.data.main.humidity}%</h4>
 </div>
 </div>
+<Forecast city={city} />
 </div>
+
     );
+    
     setLoaded(true);
   }
 
@@ -78,7 +81,6 @@ export default function Weather() {
   </form>
       <p>{result}</p>
 
-  <Forecast city={city} />
   
  </div>
   )} else {

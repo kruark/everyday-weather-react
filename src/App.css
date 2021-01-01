@@ -31,19 +31,6 @@ h4 {
   padding: 2%;
 }
 
-
-.card {
-  background-color: transparent;
-  border: 1px solid transparent;
-  border-radius: 20px;
-  margin: 5% 0;
-  text-align: center;
-  transition: all 100ms ease-in-out;
-}
-.card-title {
-  text-shadow: #333331 1px 0 2px;
-}
-
 .Footer {
   display: block;
   border-radius: 10px;
