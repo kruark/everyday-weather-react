@@ -10,15 +10,12 @@ export default function WeatherForecastPreview(props){
         return `${hours}:00`;
     }
 
-    function temperatureMax() {
-        let temperatureMax = Math.round(props.data.main.temp_max);
-return (`${temperatureMax} °C`)
+    function temperatureForecast() {
+        let temperatureForecast = Math.round(props.data.main.temp);
+return (`${temperatureForecast} °C`)
     }
 
-    function temperatureMin() {
-      let temperatureMin = Math.round(props.data.main.temp_min);
-      return (`${temperatureMin} °C`)
-    }
+
     
     return (
      <div className="WeatherForecastPreview col">
@@ -26,7 +23,7 @@ return (`${temperatureMax} °C`)
             <div className="card-body">
               <h5 className="card-title">{hours()}</h5>
               <div><WeatherIcon code={props.data.weather[0].icon} /></div>
-                <strong>{temperatureMax()}</strong> | <span>{temperatureMin()}</span>
+                <strong>{temperatureForecast()}</strong>
               </div>
             </div>
 </div>
